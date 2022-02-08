@@ -18,6 +18,14 @@ pipeline {
                 }
             }
         }
+        stage('Test jenkins1_1devops') {
+                agent {
+                docker { image 'debasish303/jenkins1_1devops:$BUILD_NUMBER' }
+            }
+            steps {
+                sh 'jenkins1_1devops --version'
+            }
+        }
         stage('Deploy our image') {
             steps {
                 script {
